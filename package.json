@@ -1,0 +1,15 @@
+{
+	"name": "root",
+	"private": true,
+	"devDependencies": {
+		"lerna": "^4.0.0"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"npmClient": "yarn",
+	"scripts": {
+		"story": "yarn lerna run story --stream",
+		"admin": "yarn lerna run start-admin --stream"
+	}
+}
