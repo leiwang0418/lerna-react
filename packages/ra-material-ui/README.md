@@ -4,37 +4,22 @@
 ```sh
 lerna add cross-env packages/ra-material-ui -D
 ```
-## 安装其它依赖包，`packages.json`配置最终结果如下（这里直接改了配置文件，重新安装的，没使用lerna 一个个包安装，原理一样）：
-```json
-{
-  "name": "ra-material-ui",
-  "version": "0.0.1",
-  "description": "ui components with material-ui",
-  "author": "lei <lei.wang0418@gmail.com>",
-  "homepage": "",
-  "license": "MIT",
-  "main": "src/index.ts",
-  "scripts": {
-    "build-storybook": "cross-env STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true build-storybook -c ./",
-    "debug": "cross-env NODE_OPTIONS=--inspect-brk STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 -c ./",
-    "storybook": "cross-env STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 -c ./"
-  },
-  "dependencies": {
-    "@storybook/addon-controls": "6.3.0-alpha.15",
-    "@storybook/addon-essentials": "6.3.0-alpha.15",
-    "@storybook/react": "6.3.0-alpha.15",
-    "@types/node": "^15.0.0",
-    "@types/react": "^17.0.4",
-    "@types/react-dom": "^17.0.3",
-    "prop-types": "15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.2.4"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
-  }
-}
+## 安装其它依赖包，`packages.json`
+
+```sh
+lerna add @storybook/addon-controls packages/ra-material-ui
+lerna add cross-env packages/ra-material-ui
+lerna add @storybook/addon-essentials packages/ra-material-ui
+lerna add @storybook/react packages/ra-material-ui
+lerna add @testing-library/jest-dom packages/ra-material-ui
+lerna add @testing-library/react packages/ra-material-ui
+lerna add @types/node packages/ra-material-ui
+lerna add @types/react packages/ra-material-ui
+lerna add @types/react-dom packages/ra-material-ui
+lerna add react packages/ra-material-ui
+lerna add react-dom packages/ra-material-ui
+lerna add typescript packages/ra-material-ui
+lerna add prop-types packages/ra-material-ui
 ```
 
 ## 重新配置`tsconfig.json`,完整内容如下：
@@ -92,8 +77,34 @@ module.exports = {
 } as StorybookConfig;
 ```
 
+## 配置启动命令,修改`packages.json`
+```json
+  "scripts": {
+    "build-storybook": "cross-env STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true build-storybook -c ./",
+    "debug": "cross-env NODE_OPTIONS=--inspect-brk STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 -c ./",
+    "storybook": "cross-env STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 -c ./"
+  },
+```
+## 启动组件项目
+```sh
+yarn lerna run storybook --stream
+```
 
-### `src/components/button/`目录下创建`button.tsx`文件，内容如下：
+## 配置任意位置通过yarn启动,`lerna-react`根目录,packages.json添加
+```json
+  "scripts": {
+    ...
+    "story": "yarn lerna run storybook --stream"
+    ...
+  }
+```
+
+### yarn 启动
+```sh
+yarn story
+```
+
+## `src/components/button/`目录下创建`button.tsx`文件，内容如下：
 ```tsx
 // src/components/button/button.tsx
 import React, { ButtonHTMLAttributes } from 'react';
@@ -107,7 +118,7 @@ export const Button = ({ label = 'Hello', ...props }) => (
 );
 ```
 
-### `src/components/button/`目录下创建`button.stories.tsx`文件，内容如下：
+## `src/components/button/`目录下创建`button.stories.tsx`文件，内容如下：
 * 为页面导出两个buttons,放到 Examples / Button 
 * WithArgs 按钮支持通过storybook直接修改标题
 * Basic按钮为普通按钮，且不可改
@@ -131,28 +142,7 @@ WithArgs.args = { label: 'With args' };
 export const Basic = () => <Button label="Click me" />;
 ```
 
-### 启动组件项目
-```sh
-yarn lerna run storybook --stream
-```
-
-### 配置任意位置通过yarn启动,`lerna-react`根目录,packages.json添加
-```json
-  "scripts": {
-    ...
-    "story": "yarn lerna run storybook --stream"
-    ...
-  }
-```
-
-### yarn 启动
-```sh
-yarn story
-```
-
-# 测试
-
-### 支持`typescript` `unit`测试
+## 支持`typescript` `unit`测试
 * 安装依赖包
 ```sh
 lerna add jest packages/ra-material-ui
@@ -160,4 +150,26 @@ lerna add ts-jest packages/ra-material-ui
 lerna add @types/jest packages/ra-material-ui
 lerna add @testing-library/react packages/ra-material-ui
 lerna add @testing-library/jest-dom  packages/ra-material-ui
+```
+
+## 修改`tsconfig.json`,支持typescript
+```json
+
+  "include": [
+    ...
+    "./jest-setup.ts"
+  ]
+```
+
+## 修改`packages.json` `scripts`部分
+```json
+  "scripts": {
+    ...
+    "test-story": "jest --colors --watch --coverage"
+  },
+```
+
+## 启动命令(未单独对全局启动进行配置)
+```sh
+yarn lerna run test-story --stream
 ```
