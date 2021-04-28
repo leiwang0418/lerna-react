@@ -173,3 +173,8 @@ lerna add @testing-library/jest-dom  packages/ra-material-ui
 ```sh
 yarn lerna run test-story --stream
 ```
+
+## 端到端测试
+> todo
+## 快照测试
+> todo
