@@ -4,6 +4,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	label: string;
 }
 
-export const Button = ({ label = 'Hello', ...props }) => (
+const Button = ({ label = 'Hello', ...props }) => (
 	<button {...props}>{label}</button>
 );
+
+export default Button;
