@@ -33,9 +33,10 @@ lerna create ra-material-ui
 cd packages/
 yarn create react-app admin --template typescript
 ```
+
 * ![配置`ra-material-ui](packages/admin/README.md)
 
- ![admin模块具体配置](packages/admin/README.md
+ ![admin模块具体配置](packages/admin/README.md)
 
 ## 配置支持 yarn workspace  
 
@@ -69,3 +70,18 @@ yarn story
 yarn admin
 ```
 
+## 基于CRA(create-react-app)添加测试项目`test-sample`
+```sh
+cd packages/
+yarn create react-app test-sample --template typescript
+lerna clean
+yarn install
+```
+## 启动
+```sh
+cd packages/test-sample
+yarn start
+```
+
+* 此项目，暂时不调用其它模块，故不与其它模块做集成，着重点关注于测试本身
+![测试相关说明](packages/admin/README.md)
