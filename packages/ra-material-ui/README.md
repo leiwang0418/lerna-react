@@ -12,7 +12,6 @@ lerna add cross-env packages/ra-material-ui
 lerna add @storybook/addon-essentials packages/ra-material-ui
 lerna add @storybook/react packages/ra-material-ui
 lerna add @testing-library/jest-dom packages/ra-material-ui
-lerna add @testing-library/react packages/ra-material-ui
 lerna add @types/node packages/ra-material-ui
 lerna add @types/react packages/ra-material-ui
 lerna add @types/react-dom packages/ra-material-ui
@@ -173,8 +172,3 @@ lerna add @testing-library/jest-dom  packages/ra-material-ui
 ```sh
 yarn lerna run test-story --stream
 ```
-
-## 端到端测试
-> todo
-## 快照测试
-> todo
