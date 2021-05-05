@@ -13,10 +13,11 @@
 - 国际化 ([react-intl-universal](https://github.com/alibaba/react-intl-universal))
 - 状态管理 ([redux](https://github.com/reduxjs/redux) + [redux-thunk](https://github.com/reduxjs/redux-thunk))
 - web组件及样式 ([@material-ui/styles](https://material-ui.com/styles/basics))
-- > TODO
-- 项目创建 create react app(typescript)
+- > 单页面路由 ([react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom))
 
-## 安装依赖
+项目创建 create react app(typescript)
+
+## 添加依赖
 ```sh
 lerna add axios packages/test-sample
 lerna add react-intl-universal packages/test-sample
@@ -24,6 +25,8 @@ lerna add redux packages/test-sample
 lerna add redux-thunk packages/test-sample
 lerna add @material-ui/core packages/test-sample
 lerna add @material-ui/styles packages/test-sample
+lerna add react-router-dom packages/test-sample
+lerna add @types/react-router-dom packages/test-sample
 ```
 
 ## 集成测试包

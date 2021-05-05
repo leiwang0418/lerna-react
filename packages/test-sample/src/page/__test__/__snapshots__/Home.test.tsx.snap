@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test with mock renders the basic home 1`] = `
+<div>
+  <div />
+</div>
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
+import intl from 'react-intl-universal';
 
-const Header = () => (<div>请输入要查询的github账号:</div>);
+const Header = () => <div>{intl.get('header.title')}</div>;
 
 export default Header;

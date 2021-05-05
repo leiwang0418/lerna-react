@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Header render test renders the basic header 1`] = `
-<div>
-  <div>
-    请输入要查询的github账号:
-  </div>
-</div>
-`;
