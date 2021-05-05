@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test with mock renders the basic selection page 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthSm"
+  >
+    <div
+      class="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;

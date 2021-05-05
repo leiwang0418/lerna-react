@@ -4,10 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserSelection from './UserSelection';
 import PublicRepositoriesList from './PublicRepositoriesList';
 
-// Header
-// UserSelection
-// PublictionRepositoryList
-
 interface Props {
 	isEditingUsername?: boolean;
 }
@@ -21,7 +17,6 @@ const Home: FC<Props> = ({ isEditingUsername }) => (
 	</Router>
 );
 
-
 Home.defaultProps = {
 	isEditingUsername: true
 };
@@ -29,9 +24,5 @@ Home.defaultProps = {
 Home.propTypes = {
 	isEditingUsername: PropTypes.bool
 };
-
-// Home.propTypes = {
-// 	isEditingUsername: PropTypes.bool.isRequired
-// };
 
 export default Home;
