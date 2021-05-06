@@ -1,9 +1,11 @@
-const header = {
-	title: 'Please Enter GitHub Username:'
+const userSelection = {
+	usernameLabel: 'GitHub Username',
+	usernamePlaceholder: 'Enter GitHub Username',
+	submitButtonText: 'View Repositories',
 };
 
 const en_US = {
-	header
-}
+	userSelection,
+};
 
 export default en_US;

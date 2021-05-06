@@ -36,3 +36,6 @@ intl.init({
 	currentLocale: CURRENT_LOCALE,
 	locales
 });
+
+
+console.log("==============")

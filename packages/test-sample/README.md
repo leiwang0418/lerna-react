@@ -13,7 +13,8 @@
 - 国际化 ([react-intl-universal](https://github.com/alibaba/react-intl-universal))
 - 状态管理 ([redux](https://github.com/reduxjs/redux) + [redux-thunk](https://github.com/reduxjs/redux-thunk))
 - web组件及样式 ([@material-ui/styles](https://material-ui.com/styles/basics))
-- > 单页面路由 ([react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom))
+- 单页面路由 ([react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom))
+- 图标([@material-ui/icons](https://material-ui.com/components/material-icons/)) 
 
 项目创建 create react app(typescript)
 
@@ -27,6 +28,7 @@ lerna add @material-ui/core packages/test-sample
 lerna add @material-ui/styles packages/test-sample
 lerna add react-router-dom packages/test-sample
 lerna add @types/react-router-dom packages/test-sample
+lerna add @material-ui/icons packages/test-sample
 ```
 
 ## 集成测试包
