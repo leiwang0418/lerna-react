@@ -10,7 +10,7 @@
 
 ## 项目包含如下依赖:
 - API请求 ([axios](https://github.com/axios/axios))
-- 国际化 ([react-intl-universal](https://github.com/alibaba/react-intl-universal))
+- 国际化 ([react-intl](https://formatjs.io/docs/react-intl))
 - 状态管理 ([redux](https://github.com/reduxjs/redux) + [redux-thunk](https://github.com/reduxjs/redux-thunk))
 - web组件及样式 ([@material-ui/styles](https://material-ui.com/styles/basics))
 - 单页面路由 ([react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom))
@@ -21,7 +21,7 @@
 ## 添加依赖
 ```sh
 lerna add axios packages/test-sample
-lerna add react-intl-universal packages/test-sample
+lerna add react-intl packages/test-sample
 lerna add redux packages/test-sample
 lerna add redux-thunk packages/test-sample
 lerna add @material-ui/core packages/test-sample

@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './util/localization';
+import { IntlProvider } from 'react-intl';
+import messages from './locale'
+
+const usersLocale = "zh-CN";
+// const usersLocale = "en-US";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<IntlProvider locale={usersLocale} messages={messages[usersLocale]}>
+			<App />
+		</IntlProvider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

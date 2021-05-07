@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import PropTypes from 'prop-types';
-import intl from 'react-intl-universal';
+import { useIntl } from 'react-intl';
 
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
+	const { formatMessage: f } = useIntl();
 	const classes = useStyles();
 	const [newUsername, setNewUsername] = useState(username);
 	const handleSubmit = (e: React.SyntheticEvent) => {
@@ -42,15 +43,16 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 		console.log('handleChangeUsername:' + value);
 		setNewUsername(value);
 	};
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<Grid container alignItems="center">
 				<Grid item xs={12}>
 					<TextField
-						label={intl.get('userSelection.usernameLabel')}
-						placeholder={intl.get(
-							'userSelection.usernamePlaceholder'
-						)}
+						label={f({ id: 'userSelection.usernameLabel' })}
+						placeholder={f({
+							id: 'userSelection.usernamePlaceholder',
+						})}
 						InputProps={GitHubUserInputProps}
 						required
 						fullWidth
@@ -66,7 +68,7 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 						fullWidth
 						className={classes.button}
 					>
-						{intl.get('userSelection.submitButtonText')}
+						{f({ id: 'userSelection.submitButtonText' })}
 					</Button>
 				</Grid>
 			</Grid>
@@ -75,7 +77,7 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 };
 
 UserSelectionForm.defaultProps = {
-	username: 'leiwang0418'
+	username: 'leiwang0418',
 };
 
 UserSelectionForm.propTypes = {
