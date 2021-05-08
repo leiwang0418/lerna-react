@@ -40,7 +40,6 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 		e
 	) => {
 		const value = e.currentTarget.value;
-		console.log('handleChangeUsername:' + value);
 		setNewUsername(value);
 	};
 
