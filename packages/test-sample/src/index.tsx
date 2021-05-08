@@ -5,12 +5,12 @@ import reportWebVitals from './reportWebVitals';
 import { IntlProvider } from 'react-intl';
 import messages from './locale'
 
-const usersLocale = "zh-CN";
-// const usersLocale = "en-US";
+const userLocale = "zh-CN";
+// const userLocale = "en-US";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<IntlProvider locale={usersLocale} messages={messages[usersLocale]}>
+		<IntlProvider locale={userLocale} messages={messages[userLocale]}>
 			<App />
 		</IntlProvider>
 	</React.StrictMode>,

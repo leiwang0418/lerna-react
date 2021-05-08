@@ -1,20 +1,16 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-// import '../../util/localization';
+import { render } from '../../util/test-utils';
 import UserSelectionForm from '../UserSelectionForm';
-
-
-// jest.import intl from 'react-intl-universal';
-const intl = jest.genMockFromModule('react-intl-universal');
 
 describe('snapshot test', () => {
 	it('render snapshot', () => {
 		const { container } = render(<UserSelectionForm />);
 
-		// expect(container).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });
 
+// todo add act test
 // describe('act', () => {
 	
 // })
