@@ -19,7 +19,7 @@ const GitHubUserInputProps = {
 
 interface Props {
 	username?: string;
-	setUsername?: Function;
+	setUsername: Function;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -32,10 +32,12 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 	const { formatMessage: f } = useIntl();
 	const classes = useStyles();
 	const [newUsername, setNewUsername] = useState(username);
+
 	const handleSubmit = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		console.log('handleSubmit');
+		setUsername(newUsername);
 	};
+
 	const handleChangeUsername: React.ChangeEventHandler<HTMLInputElement> = (
 		e
 	) => {
@@ -81,7 +83,7 @@ UserSelectionForm.defaultProps = {
 
 UserSelectionForm.propTypes = {
 	username: PropTypes.string,
-	setUsername: PropTypes.func,
+	setUsername: PropTypes.func.isRequired,
 };
 
 export default UserSelectionForm;

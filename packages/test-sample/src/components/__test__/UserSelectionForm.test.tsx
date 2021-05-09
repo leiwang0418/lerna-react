@@ -1,10 +1,15 @@
 import React from 'react';
-import { render, screen, act } from '../../util/test-utils';
+import { render, screen, fireEvent } from '../../util/test-utils';
 import UserSelectionForm from '../UserSelectionForm';
+
+const username = 'leiwang0418';
+const setUsername = jest.fn();
 
 describe('snapshot test', () => {
 	it('render snapshot', () => {
-		const { container } = render(<UserSelectionForm />);
+		const { container } = render(
+			<UserSelectionForm username={username} setUsername={setUsername} />
+		);
 
 		expect(container).toMatchSnapshot();
 
@@ -16,11 +21,31 @@ describe('snapshot test', () => {
 	});
 });
 
-// todo add act test
-// describe('act test', () => {
-// 	it('change value when clicked', () => {
-// 		act(() => {
-// 			render(<UserSelectionForm />);
-// 		});
-// 	})
-// })
+describe('act test', () => {
+	const setup = () => {
+		const utils = render(
+			<UserSelectionForm username={username} setUsername={setUsername} />
+		);
+		const input = screen.getByDisplayValue(/leiwang0418/i);
+		const submit = screen.getByRole('button');
+		return {
+			input,
+			submit,
+			...utils,
+		};
+	};
+
+	it('change search value', () => {
+		const { input, submit } = setup();
+		fireEvent.change(input, { target: { value: 'lei' } });
+
+		expect(screen.getByDisplayValue('lei') === input).toBe(true);
+	});
+
+	it('submit clicked', () => {
+		const { input, submit } = setup();
+		fireEvent.click(submit);
+
+		expect(setUsername).toHaveBeenCalled();
+	});
+});
