@@ -18,7 +18,7 @@ const GitHubUserInputProps = {
 };
 
 interface Props {
-	username: string;
+	username?: string;
 	setUsername: Function;
 }
 
@@ -82,7 +82,7 @@ UserSelectionForm.defaultProps = {
 };
 
 UserSelectionForm.propTypes = {
-	username: PropTypes.string.isRequired,
+	username: PropTypes.string,
 	setUsername: PropTypes.func.isRequired,
 };
 
