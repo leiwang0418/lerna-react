@@ -1,0 +1,18 @@
+{
+  "318jDo": {
+    "defaultMessage": "请输入GitHub用户名",
+    "description": "用户名查询框label默认提示"
+  },
+  "e4EJ1+": {
+    "defaultMessage": "GitHub用户名",
+    "description": "用户名查询框label"
+  },
+  "qJrsU+": {
+    "defaultMessage": "查看仓库列表",
+    "description": "查看仓库列表提交按钮显示内容"
+  },
+  "tKbyKl": {
+    "defaultMessage": "{username}的公共仓库:",
+    "description": "仓库列表头信息"
+  }
+}

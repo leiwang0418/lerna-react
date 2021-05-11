@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
+import { useIntl, defineMessage } from 'react-intl';
 
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -28,8 +28,25 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+const message = {
+	searchFiled: {
+		label: defineMessage({
+			defaultMessage: 'GitHub用户名',
+			description: '用户名查询框label',
+		}),
+		placeholder: defineMessage({
+			defaultMessage: '请输入GitHub用户名',
+			description: '用户名查询框label默认提示',
+		}),
+	},
+	submitText: defineMessage({
+		defaultMessage: '查看仓库列表',
+		description: '查看仓库列表提交按钮显示内容',
+	}),
+};
+
 const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
-	const { formatMessage: f } = useIntl();
+	const intl = useIntl();
 	const classes = useStyles();
 	const [newUsername, setNewUsername] = useState(username);
 
@@ -50,10 +67,10 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 			<Grid container alignItems="center">
 				<Grid item xs={12}>
 					<TextField
-						label={f({ id: 'userSelection.usernameLabel' })}
-						placeholder={f({
-							id: 'userSelection.usernamePlaceholder',
-						})}
+						label={intl.formatMessage(message.searchFiled.label)}
+						placeholder={intl.formatMessage(
+							message.searchFiled.placeholder
+						)}
 						InputProps={GitHubUserInputProps}
 						required
 						fullWidth
@@ -69,7 +86,7 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 						fullWidth
 						className={classes.button}
 					>
-						{f({ id: 'userSelection.submitButtonText' })}
+						{intl.formatMessage(message.searchFiled.submitText)}
 					</Button>
 				</Grid>
 			</Grid>

@@ -1,13 +1,18 @@
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { useIntl } from 'react-intl';
+import { useIntl, defineMessage } from 'react-intl';
 
 const useStyles = makeStyles((theme) => ({
 	header: {
-		margin: theme.spacing(3, 0, 2, 0)
-	}
+		margin: theme.spacing(3, 0, 2, 0),
+	},
 }));
+
+const message = defineMessage({
+	defaultMessage: '{username}的公共仓库:',
+	description: '仓库列表头信息',
+});
 
 const PublicRepositoriesList = () => {
 	const classes = useStyles();
@@ -15,12 +20,13 @@ const PublicRepositoriesList = () => {
 	const username = 'test';
 	return (
 		<Container maxWidth="md">
-			<Typography variant="h3" component="h1" className={classes.header} gutterBottom>
-				{intl.formatMessage({
-					defaultMessage: 'New Password',
-					description: 'placeholder text'
-				})}
-				{intl.formatMessage({ id: 'repositories.header' }, { username })}
+			<Typography
+				variant="h3"
+				component="h1"
+				className={classes.header}
+				gutterBottom
+			>
+				{intl.formatMessage(message, { values: { username } })}
 			</Typography>
 		</Container>
 	);
