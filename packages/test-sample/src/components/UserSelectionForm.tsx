@@ -86,7 +86,7 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 						fullWidth
 						className={classes.button}
 					>
-						{intl.formatMessage(message.searchFiled.submitText)}
+						{intl.formatMessage(message.submitText)}
 					</Button>
 				</Grid>
 			</Grid>

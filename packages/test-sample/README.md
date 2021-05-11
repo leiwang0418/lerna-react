@@ -89,6 +89,41 @@ export default PublicRepositoriesList;
 ```sh
 yarn extract 'src/**/*.tsx' --out-file lang/zh.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'
 ```
+- 在`package.json`中配置编译脚本
+```json
+"scripts": {
+    ...
+    "compile": "formatjs compile"
+  }
+```
+- 执行脚本
+```sh
+yarn compile lang/zh.json --ast --out-file compiled-lang/zh.json
+```
+- 指定格式化样式,项目根目录添加`formatter.js`,内容如下:
+```js
+/* 通过以下方式格式化为此样式
+{
+  "[id]": {
+    "string": "[message]",
+    "comment": "[description]"
+  }
+}
+*/
+
+exports.compile = function (msgs) {
+    const results = {};
+    for (const [id, msg] of Object.entries(msgs)) {
+        results[id] = msg.string;
+    }
+    return results;
+};
+
+```
+- 指定格式化样式执行脚本
+```sh
+yarn compile lang/zh.json --ast --out-file compiled-lang/zh.json --format formatter.js
+```
 
 ## 集成测试包
 

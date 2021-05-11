@@ -1,0 +1,30 @@
+{
+  "318jDo": [
+    {
+      "type": 0,
+      "value": "请输入GitHub用户名"
+    }
+  ],
+  "e4EJ1+": [
+    {
+      "type": 0,
+      "value": "GitHub用户名"
+    }
+  ],
+  "qJrsU+": [
+    {
+      "type": 0,
+      "value": "查看仓库列表"
+    }
+  ],
+  "tKbyKl": [
+    {
+      "type": 1,
+      "value": "username"
+    },
+    {
+      "type": 0,
+      "value": "的公共仓库:"
+    }
+  ]
+}
