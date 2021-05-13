@@ -17,7 +17,7 @@ const message = defineMessage({
 const PublicRepositoriesList = () => {
 	const classes = useStyles();
 	const intl = useIntl();
-	const username = 'test';
+	const username = 'lei';
 	return (
 		<Container maxWidth="md">
 			<Typography
@@ -26,7 +26,7 @@ const PublicRepositoriesList = () => {
 				className={classes.header}
 				gutterBottom
 			>
-				{intl.formatMessage(message, { values: { username } })}
+				{intl.formatMessage(message, { username })}
 			</Typography>
 		</Container>
 	);

@@ -18,11 +18,17 @@
 -   单页面路由 ([react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom))
 -   图标([@material-ui/icons](https://material-ui.com/components/material-icons/))
 
+
+-   国际化自动提取([@format/cli](https://formatjs.io/docs/tooling/cli))
+-   国际化自动生成id([babel-plugin-formatjs](https://formatjs.io/docs/getting-started/installation))
+-   配置babel以支持自动生成国际化的`id`映射([@craco/craco](https://github.com/gsoft-inc/craco))
+
 项目创建 create react app(typescript)
 
 ## 添加依赖
 
 ```sh
+lerna add @craco/craco packages/test-sample
 lerna add axios packages/test-sample
 lerna add react-intl packages/test-sample
 lerna add redux packages/test-sample
@@ -40,6 +46,7 @@ lerna add @material-ui/icons packages/test-sample
 
 ```
 lerna add @formatjs/cli packages/test-sample -D
+lerna add babel-plugin-formatjs packages/test-sample -D
 ```
 
 ## 修改`package.json`
@@ -57,37 +64,45 @@ lerna add @formatjs/cli packages/test-sample -D
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { useIntl } from 'react-intl';
+import { useIntl, defineMessage } from 'react-intl';
 
 const useStyles = makeStyles((theme) => ({
     header: {
-        margin: theme.spacing(3, 0, 2, 0)
-    }
+        margin: theme.spacing(3, 0, 2, 0),
+    },
 }));
+
+const message = defineMessage({
+    defaultMessage: '{username}的公共仓库:',
+    description: '仓库列表头信息',
+});
 
 const PublicRepositoriesList = () => {
     const classes = useStyles();
     const intl = useIntl();
-    const username = 'test';
+    const username = 'lei';
     return (
         <Container maxWidth="md">
-            <Typography variant="h3" component="h1" className={classes.header} gutterBottom>
-                {intl.formatMessage({
-                    defaultMessage: 'New Password',
-                    description: 'placeholder text'
-                })}
+            <Typography
+                variant="h3"
+                component="h1"
+                className={classes.header}
+                gutterBottom
+            >
+                {intl.formatMessage(message, { username })}
             </Typography>
         </Container>
     );
 };
 
 export default PublicRepositoriesList;
+
 ```
 
 ## 提取国际化脚本命令(路径及名字可以自己修改)
 - 其中国际化id按建议为自动生成
 ```sh
-yarn extract 'src/**/*.tsx' --out-file lang/zh.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'
+yarn extract 'src/**/*.tsx' --out-file src/lang/zh.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'
 ```
 - 在`package.json`中配置编译脚本
 ```json
@@ -98,31 +113,40 @@ yarn extract 'src/**/*.tsx' --out-file lang/zh.json --id-interpolation-pattern '
 ```
 - 执行脚本
 ```sh
-yarn compile lang/zh.json --ast --out-file compiled-lang/zh.json
+yarn compile src/lang/zh.json --ast --out-file src/compiled-lang/zh.json
 ```
-- 指定格式化样式,项目根目录添加`formatter.js`,内容如下:
-```js
-/* 通过以下方式格式化为此样式
-{
-  "[id]": {
-    "string": "[message]",
-    "comment": "[description]"
-  }
-}
-*/
 
-exports.compile = function (msgs) {
-    const results = {};
-    for (const [id, msg] of Object.entries(msgs)) {
-        results[id] = msg.string;
-    }
-    return results;
+# CRA使用react-intl推荐的自动生成id，需要配置babel
+## 使用`craco`配置formatjs
+
+- 配置craco启动
+```json
+  "scripts": {
+    - "start": "react-scripts start",
+    + "start": "craco start",
+    - "build": "react-scripts build",
+    + "build": "craco build",
+    - "test": "react-scripts test",
+    + "test": "craco test",
+  },
+```
+
+## 根目录添加craco.config.js配置formatjs的babel
+```json
+module.exports = {
+    babel: {
+        plugins: [
+            [
+                'formatjs',
+                {
+                    idInterpolationPattern: '[sha512:contenthash:base64:6]',
+                    ast: true,
+                },
+            ],
+        ],
+    },
 };
 
-```
-- 指定格式化样式执行脚本
-```sh
-yarn compile lang/zh.json --ast --out-file compiled-lang/zh.json --format formatter.js
 ```
 
 ## 集成测试包

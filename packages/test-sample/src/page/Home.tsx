@@ -18,7 +18,7 @@ const Home: FC<Props> = ({ isEditingUsername }) => (
 );
 
 Home.defaultProps = {
-	isEditingUsername: false
+	isEditingUsername: true
 };
 
 Home.propTypes = {

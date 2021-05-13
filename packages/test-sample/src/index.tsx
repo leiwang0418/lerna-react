@@ -4,25 +4,26 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { IntlProvider } from 'react-intl';
 
-function loadLocaleData(locale: string): Record<string, string> | Record<string, MessageFormatElement[]> | undefined {
-	switch (locale) {
-		case 'en':
-			return import('../compiled-lang/en.json')
-		default:
-			return import('../compiled-lang/zh.json')
-	}
-}
-// const loadLocaleData: Promise<Record<string, string>> = (locale: string) => {
+// function loadLocaleData(locale: string): Record<string, string> | Record<string, MessageFormatElement[]> | undefined {
 // 	switch (locale) {
 // 		case 'en':
-// 			return import('../compiled-lang/zh.json')
+// 			return import('../compiled-lang/en.json')
 // 		default:
 // 			return import('../compiled-lang/zh.json')
 // 	}
 // }
+// // const loadLocaleData: Promise<Record<string, string>> = (locale: string) => {
+// // 	switch (locale) {
+// // 		case 'en':
+// // 			return import('../compiled-lang/zh.json')
+// // 		default:
+// // 			return import('../compiled-lang/zh.json')
+// // 	}
+// // }
 
 async function bootstrapApp(locale: string, mainDiv: HTMLElement | null) {
-	const messages = loadLocaleData(locale);
+	// const messages = loadLocaleData(locale);
+	const messages = require('./compiled-lang/zh.json');
 
 	ReactDOM.render(
 		<React.StrictMode>
@@ -40,5 +41,3 @@ bootstrapApp('zh', document.getElementById('root'));
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-// Record<string, string> | Record<string, MessageFormatElement[]> | undefined
