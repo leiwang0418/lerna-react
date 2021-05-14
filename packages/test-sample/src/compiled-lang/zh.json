@@ -11,6 +11,12 @@
       "value": "GitHub用户名"
     }
   ],
+  "gobuT3": [
+    {
+      "type": 0,
+      "value": "加载用户仓库列表失败"
+    }
+  ],
   "qJrsU+": [
     {
       "type": 0,

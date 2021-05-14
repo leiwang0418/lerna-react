@@ -7,6 +7,10 @@
     "defaultMessage": "GitHub用户名",
     "description": "用户名查询框label"
   },
+  "gobuT3": {
+    "defaultMessage": "加载用户仓库列表失败",
+    "description": "加载用户仓库列表错误"
+  },
   "qJrsU+": {
     "defaultMessage": "查看仓库列表",
     "description": "查看仓库列表提交按钮显示内容"

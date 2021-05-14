@@ -26,12 +26,13 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "yarn lang && craco start",
+    "build": "yarn lang && craco build",
+    "test": "yarn lang && craco test",
     "eject": "react-scripts eject",
-    "extract": "formatjs extract",
-    "compile": "formatjs compile"
+    "lang": "yarn extract && yarn compile",
+    "extract": "formatjs extract \"src/**/*.tsx\" --out-file src/lang/zh.json --id-interpolation-pattern \"[sha512:contenthash:base64:6]\"",
+    "compile": "formatjs compile src/lang/zh.json --ast --out-file src/compiled-lang/zh.json"
   },
   "eslintConfig": {
     "extends": [

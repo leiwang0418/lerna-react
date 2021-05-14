@@ -2,6 +2,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl, defineMessage } from 'react-intl';
+import UserRepositoriesList from '../components/UserRepositories/UserRepositoriesList';
 
 const useStyles = makeStyles((theme) => ({
 	header: {
@@ -18,6 +19,7 @@ const PublicRepositoriesList = () => {
 	const classes = useStyles();
 	const intl = useIntl();
 	const username = 'lei';
+
 	return (
 		<Container maxWidth="md">
 			<Typography
@@ -28,6 +30,7 @@ const PublicRepositoriesList = () => {
 			>
 				{intl.formatMessage(message, { username })}
 			</Typography>
+			<UserRepositoriesList />
 		</Container>
 	);
 };

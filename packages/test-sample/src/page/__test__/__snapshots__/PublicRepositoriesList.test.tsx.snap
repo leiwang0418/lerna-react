@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test with mock renders the basic PublicRepositories List page 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthMd"
+  >
+    <h1
+      class="MuiTypography-root makeStyles-header-1 MuiTypography-h3 MuiTypography-gutterBottom"
+    >
+      lei的公共仓库:
+    </h1>
+    <div />
+  </div>
+</div>
+`;
