@@ -3,28 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { IntlProvider } from 'react-intl';
+import loadLocaleData from './util/loadLocaleData';
 
-// function loadLocaleData(locale: string): Record<string, string> | Record<string, MessageFormatElement[]> | undefined {
-// 	switch (locale) {
-// 		case 'en':
-// 			return import('../compiled-lang/en.json')
-// 		default:
-// 			return import('../compiled-lang/zh.json')
-// 	}
-// }
-// // const loadLocaleData: Promise<Record<string, string>> = (locale: string) => {
-// // 	switch (locale) {
-// // 		case 'en':
-// // 			return import('../compiled-lang/zh.json')
-// // 		default:
-// // 			return import('../compiled-lang/zh.json')
-// // 	}
-// // }
 
-async function bootstrapApp(locale: string, mainDiv: HTMLElement | null) {
-	// const messages = loadLocaleData(locale);
-	const messages = require('./compiled-lang/zh.json');
-
+const bootstrapApp = async (locale: string, mainDiv: HTMLElement | null) => {
+  const messages = await loadLocaleData(locale);
 	ReactDOM.render(
 		<React.StrictMode>
 			<IntlProvider locale={locale} messages={messages}>
@@ -35,7 +18,7 @@ async function bootstrapApp(locale: string, mainDiv: HTMLElement | null) {
 	);
 }
 
-bootstrapApp('zh', document.getElementById('root'));
+bootstrapApp('en', document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,0 +1,30 @@
+{
+  "318jDo": [
+    {
+      "type": 0,
+      "value": "Enter GitHub username"
+    }
+  ],
+  "e4EJ1+": [
+    {
+      "type": 0,
+      "value": "GitHub username"
+    }
+  ],
+  "qJrsU+": [
+    {
+      "type": 0,
+      "value": "view repositories list"
+    }
+  ],
+  "tKbyKl": [
+    {
+      "type": 1,
+      "value": "username"
+    },
+    {
+      "type": 0,
+      "value": "'s public repositories':"
+    }
+  ]
+}
