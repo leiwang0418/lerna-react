@@ -7,7 +7,7 @@ jest.mock('../UserSelection', () => () => <div />);
 jest.mock('../PublicRepositoriesList', () => () => <div />);
 
 describe('snapshot test with mock', () => {
-	test('renders the user selection', () => {
+	test('renders the UserSelection', () => {
 		const { container } = render(<Home />);
 
 		expect(container).toMatchSnapshot();

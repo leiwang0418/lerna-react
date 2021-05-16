@@ -6,7 +6,7 @@ const username = 'leiwang0418';
 const setUsername = jest.fn();
 
 describe('snapshot test', () => {
-	it('render snapshot', () => {
+	it('renders the basic UserSelectionForm', () => {
 		const { container } = render(
 			<UserSelectionForm username={username} setUsername={setUsername} />
 		);

@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`snapshot test with mock renders the UserSelection 1`] = `
+<div>
+  <div />
+</div>
+`;
+
 exports[`snapshot test with mock renders the public repositories list 1`] = `
 <div>
   <div />

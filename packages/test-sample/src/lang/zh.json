@@ -3,6 +3,10 @@
     "defaultMessage": "请输入GitHub用户名",
     "description": "用户名查询框label默认提示"
   },
+  "F7pOIz": {
+    "defaultMessage": "未发现仓库数据",
+    "description": "仓库数据为空提示"
+  },
   "e4EJ1+": {
     "defaultMessage": "GitHub用户名",
     "description": "用户名查询框label"
