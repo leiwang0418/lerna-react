@@ -8,7 +8,7 @@ jest.mock('../PublicRepositoriesList', () => () => <div />);
 
 describe('snapshot test with mock', () => {
 	test('renders the UserSelection', () => {
-		const { container } = render(<Home />);
+		const { container } = render(<Home isEditingUsername={true} />);
 
 		expect(container).toMatchSnapshot();
 	});

@@ -1,7 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import StoreProvider from './components/StoreProvider';
-import Home from './page/Home.container';
+import Home from './pages/Home.container';
 
 function App() {
 	return (

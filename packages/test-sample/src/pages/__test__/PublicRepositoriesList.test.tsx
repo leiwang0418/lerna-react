@@ -1,4 +1,4 @@
-import { render } from '../../util/test-utils';
+import { render } from '../../utils/test-utils';
 import PublicRepositoriesList from '../PublicRepositoriesList';
 
 jest.mock('../../components/UserRepositories/UserRepositoriesList', () => () => <div />);

@@ -6,8 +6,10 @@ interface State {
 	user: { isEditing: boolean };
 }
 
-export default connect((state: State) => ({
+const mapStateToProps = (state: State) => ({
 	isEditingUsername: userSelectors.isEditingUsername(state),
-}))(Home);
+});
+
+export default connect(mapStateToProps)(Home);
 
 export type UserState = State;

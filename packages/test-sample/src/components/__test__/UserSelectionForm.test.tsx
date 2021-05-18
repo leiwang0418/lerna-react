@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '../../util/test-utils';
+import { render, screen, fireEvent } from '../../utils/test-utils';
 import UserSelectionForm from '../UserSelectionForm';
 
 const username = 'leiwang0418';

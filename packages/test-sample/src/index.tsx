@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { IntlProvider } from 'react-intl';
-import loadLocaleData from './util/loadLocaleData';
+import loadLocaleData from './utils/loadLocaleData';
 
 
-const bootstrapApp = async (locale: string, mainDiv: HTMLElement | null) => {
+export const bootstrapApp = async (locale: string, mainDiv: HTMLElement | null) => {
   const messages = await loadLocaleData(locale);
 	ReactDOM.render(
 		<React.StrictMode>
