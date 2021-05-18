@@ -1,7 +1,5 @@
-interface State {
-	user: { isEditing: boolean; name: string };
-}
+import { UserState } from '../../page/Home.container';
 
-export function isEditingUsername(state: State): boolean {
+export function isEditingUsername(state: UserState) {
 	return state.user.isEditing;
 }
