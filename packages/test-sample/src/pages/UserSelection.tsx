@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import UserSelectionForm from '../components/UserSelectionForm';
+import UserSelectionForm from '../components/UserSelectionForm.container';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -11,12 +11,11 @@ const useStyles = makeStyles((theme) => ({
 
 const UserSelection = () => {
 	const classes = useStyles();
-	const [username, setUsername] = useState('');
 
 	return (
 		<Container maxWidth="sm">
 			<Paper className={classes.paper}>
-				<UserSelectionForm username={username} setUsername={setUsername} />
+				<UserSelectionForm />
 			</Paper>
 		</Container>
 	);

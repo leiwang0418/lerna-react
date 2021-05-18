@@ -153,6 +153,11 @@ module.exports = {
 
 ```
 
+## 显示测试覆盖率
+```sh
+yarn test --coverage --watchAll=false
+```
+
 ## 集成测试包
 
 ```sh

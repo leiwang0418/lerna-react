@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snaphost test renders the basic UserRepositoriesList 1`] = `
+<div>
+  <ul
+    class="MuiList-root MuiList-padding"
+  >
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-alignItemsFlexStart"
+    >
+      <div
+        class="MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        >
+          未发现仓库数据
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

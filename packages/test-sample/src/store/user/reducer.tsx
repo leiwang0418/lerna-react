@@ -1,36 +1,27 @@
 import ACTION_TYPE from './actionType';
 import { DefaultRootState } from 'react-redux';
-import { Action, Reducer } from 'redux';
+import { UserAction, UserState } from './actions'
 
-interface InitialState extends DefaultRootState {
-	name: string | Partial<InitialState>;
-	isEditing: boolean | Partial<InitialState>;
-}
 
-const initialState: InitialState = {
+const initialState: UserState = {
 	name: 'leiwang0418',
 	isEditing: true,
 };
 
-interface DispatchAction extends Action {
-	payload: Partial<InitialState>;
-}
-
-const reducer: Reducer<InitialState, DispatchAction> = (
-	state = initialState,
-	{ type, payload }
+const reducer = (
+	state = initialState, { type, user }: UserAction
 ) => {
 	switch (type) {
 		case ACTION_TYPE.SET_NAME:
 			return {
 				...state,
-				name: payload,
+				name: user.name,
 				isEditing: false,
 			};
 		case ACTION_TYPE.SET_EDITING_NAME:
 			return {
 				...state,
-				isEditing: payload,
+				isEditing: user.isEditing,
 			};
 		default:
 			return state;
