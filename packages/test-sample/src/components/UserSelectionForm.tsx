@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUsername, setUsername } from './UserSelectFormSlice';
+import { selectUsername, setUsername } from '../pages/HomeSlice';
 
 const GitHubUserInputProps = {
 	startAdornment: (

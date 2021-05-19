@@ -1,20 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
-interface HomeState {
+interface UserState {
+	username: string;
 	isEditing: boolean;
 }
 
-const initialState: HomeState = {
-	isEditing: true,
+const initialState: UserState = {
+	username: 'leiwang0418',
+	isEditing: true
 };
 
-const HomeSlice = createSlice({
-	name: 'home',
+const UserSlice = createSlice({
+	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		setUsername: (state, action: PayloadAction<string>) => {
+			state.username = action.payload;
+			state.isEditing = !state.isEditing;
+		},
+	},
 });
 
-export const selectIsEditing = (state: RootState) => state.home.isEditing;
+export const { setUsername } = UserSlice.actions;
 
-export default HomeSlice.reducer;
+export const selectUsername = (state: RootState) => state.user.username;
+export const selectIsEditing = (state: RootState) => state.user.isEditing;
+
+export default UserSlice.reducer;
