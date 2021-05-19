@@ -8,6 +8,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUsername, setUsername } from './UserSelectFormSlice';
 
 const GitHubUserInputProps = {
 	startAdornment: (
@@ -16,11 +18,6 @@ const GitHubUserInputProps = {
 		</InputAdornment>
 	),
 };
-
-interface Props {
-	username: string;
-	setUsername: Function;
-}
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -43,14 +40,17 @@ const messages = defineMessages({
 	},
 });
 
-const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
+const UserSelectionForm: FC = () => {
 	const intl = useIntl();
 	const classes = useStyles();
+	const username = useSelector(selectUsername);
+	const dispatch = useDispatch();
+
 	const [newUsername, setNewUsername] = useState(username);
 
 	const handleSubmit = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		setUsername(newUsername);
+		dispatch(setUsername(newUsername));
 	};
 
 	const handleChangeUsername: React.ChangeEventHandler<HTMLInputElement> = (
@@ -92,10 +92,9 @@ const UserSelectionForm: FC<Props> = ({ username, setUsername }) => {
 	);
 };
 
-
-UserSelectionForm.propTypes = {
-	username: PropTypes.string.isRequired,
-	setUsername: PropTypes.func.isRequired,
-};
+// UserSelectionForm.propTypes = {
+// 	username: PropTypes.string.isRequired,
+// 	setUsername: PropTypes.func.isRequired,
+// };
 
 export default UserSelectionForm;

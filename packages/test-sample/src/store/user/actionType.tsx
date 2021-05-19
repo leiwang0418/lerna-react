@@ -1,4 +1,0 @@
-export default {
-	SET_NAME: 'SET_NAME',
-	SET_EDITING_NAME: 'SET_EDITING_NAME',
-};

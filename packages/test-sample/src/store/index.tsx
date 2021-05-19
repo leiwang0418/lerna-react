@@ -1,21 +1,20 @@
-import {
-	createStore as createStoreCtl,
-	combineReducers,
-	applyMiddleware,
-} from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import user from './user/reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import homeReducer from '../pages/HomeSlice';
+import userReducer from '../components/UserSelectFormSlice';
 
-const rootReducer = combineReducers({ user });
+export const store = configureStore({
+	reducer: {
+		home: homeReducer,
+		user: userReducer,
+	},
+});
 
-const createStore = () => {
-	let composedEnhancers = applyMiddleware(thunk);
-	if (process.env.NODE_ENV === 'development') {
-		composedEnhancers = composeWithDevTools(applyMiddleware(thunk));
-	}
+// const store = configureStore({
+//   reducer: {
+//     posts: postsReducer,
+//     comments: commentsReducer,
+//     users: usersReducer,
+//   }
+// })
 
-	return createStoreCtl(rootReducer, composedEnhancers);
-};
-
-export default createStore;
+export type RootState = ReturnType<typeof store.getState>;

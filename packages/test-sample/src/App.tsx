@@ -1,14 +1,15 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import StoreProvider from './components/StoreProvider';
-import Home from './pages/Home.container';
+import { Provider } from 'react-redux';
+import {store} from './store';
+import Home from './pages/Home';
 
 function App() {
 	return (
 		<CssBaseline>
-			<StoreProvider>
+			<Provider store={store}>
 				<Home />
-			</StoreProvider>
+			</Provider>
 		</CssBaseline>
 	);
 }

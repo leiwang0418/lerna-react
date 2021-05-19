@@ -33,6 +33,9 @@ lerna add axios packages/test-sample
 lerna add react-intl packages/test-sample
 lerna add redux packages/test-sample
 lerna add react-redux packages/test-sample
+lerna add @types/react-redux packages/test-sample
+lerna add @reduxjs/toolkit packages/test-sample
+
 lerna add redux-thunk packages/test-sample
 lerna add @material-ui/core packages/test-sample
 lerna add @material-ui/styles packages/test-sample
@@ -41,7 +44,6 @@ lerna add @types/react-router-dom packages/test-sample
 lerna add @material-ui/icons packages/test-sample
 
 lerna add redux-mock-store packages/test-sample -D
-lerna add redux-devtools-extension packages/test-sample -D
 ```
 
 # 国际化内容动态提取

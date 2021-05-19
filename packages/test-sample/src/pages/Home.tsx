@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserSelection from './UserSelection';
 import PublicRepositoriesList from './PublicRepositoriesList';
+import { useSelector } from 'react-redux';
+import { selectIsEditing } from './HomeSlice';
 
-interface State {
-	isEditingUsername: boolean;
-}
-
-const Home: FC<State> = ({ isEditingUsername }) => (
-	<Router>
-		<Switch>
-			{isEditingUsername && <Route path="/" component={UserSelection} />}
-			<Route path="/" component={PublicRepositoriesList} />
-		</Switch>
-	</Router>
-);
-
-Home.propTypes = {
-	isEditingUsername: PropTypes.bool.isRequired
+const Home: FC = () => {
+	const isEditing = useSelector(selectIsEditing);
+	return (
+		<Router>
+			<Switch>
+				{isEditing && (
+					<Route path="/" component={UserSelection} />
+				)}
+				<Route path="/" component={PublicRepositoriesList} />
+			</Switch>
+		</Router>
+	);
 };
 
 export default Home;
