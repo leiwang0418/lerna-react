@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useIntl, defineMessages } from 'react-intl';
 
 import Grid from '@material-ui/core/Grid';
@@ -50,7 +49,8 @@ const UserSelectionForm: FC = () => {
 
 	const handleSubmit = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		dispatch(setUsername(newUsername));
+		setUsername(newUsername);
+		// dispatch(setUsername(newUsername));
 	};
 
 	const handleChangeUsername: React.ChangeEventHandler<HTMLInputElement> = (
@@ -91,10 +91,5 @@ const UserSelectionForm: FC = () => {
 		</form>
 	);
 };
-
-// UserSelectionForm.propTypes = {
-// 	username: PropTypes.string.isRequired,
-// 	setUsername: PropTypes.func.isRequired,
-// };
 
 export default UserSelectionForm;

@@ -44,6 +44,7 @@ lerna add @types/react-router-dom packages/test-sample
 lerna add @material-ui/icons packages/test-sample
 
 lerna add redux-mock-store packages/test-sample -D
+lerna add @types/redux-mock-store packages/test-sample -D
 ```
 
 # 国际化内容动态提取

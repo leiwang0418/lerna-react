@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import UserSelectionForm from '../components/UserSelectionForm';

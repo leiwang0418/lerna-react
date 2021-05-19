@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserSelection from './UserSelection';
 import PublicRepositoriesList from './PublicRepositoriesList';
