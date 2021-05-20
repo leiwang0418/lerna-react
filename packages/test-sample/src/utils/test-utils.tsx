@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { render as rtlRender, RenderOptions } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import zh from '../compiled-lang/zh.json';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 
 const render = (
 	ui: React.ReactElement,
@@ -9,7 +11,7 @@ const render = (
 ) => {
 	const Wrapper: FC = ({ children }) => (
 		<IntlProvider locale={locale} messages={zh}>
-			{children}
+			<Provider store={store}>{children}</Provider>
 		</IntlProvider>
 	);
 

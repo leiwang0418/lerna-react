@@ -2,32 +2,13 @@ import React from 'react';
 import { render, screen, fireEvent } from '../utils/test-utils';
 import UserSelectionForm from './UserSelectionForm';
 
-
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-
-
-const setup = () => {
-	const mockSetUsername = jest.spyOn(require("../pages/HomeSlice"), 'setUsername');
-	const initialState = { user: { username: 'leiwang0418', isEditing: true } };
-	const mockStore = configureStore();
-	const store = mockStore(initialState);
-
-	const { container } = render(
-		<Provider store={store}>
-			<UserSelectionForm />
-		</Provider>
-	);
-
-	const input = screen.getByDisplayValue(/leiwang0418/i);
-	const submit = screen.getByRole('button');
-
-	return { input, submit, mockSetUsername, container };
-};
+import thunk from 'redux-thunk';
 
 describe('snapshot test', () => {
 	it('renders the basic UserSelectionForm', () => {
-		const { container } = setup();
+		const { container } = render(<UserSelectionForm />);
 
 		expect(container).toMatchSnapshot();
 
@@ -39,16 +20,19 @@ describe('snapshot test', () => {
 
 describe('act test', () => {
 	it('change search value', () => {
-		const { input } = setup();
+		render(<UserSelectionForm />);
+		const input = screen.getByDisplayValue(/leiwang0418/i);
 		fireEvent.change(input, { target: { value: 'lei' } });
 
 		expect(screen.getByDisplayValue('lei') === input).toBe(true);
 	});
 
 	it('submit clicked', () => {
-		const { mockSetUsername, input, submit } = setup();
+		const mockSetUsername = jest.spyOn(require("../pages/HomeSlice"), 'setUsername');
+		render(<UserSelectionForm />);
+		const submit = screen.getByRole('button');
 		fireEvent.click(submit);
 
-		expect(mockSetUsername).toHaveBeenCalled();
+		expect(mockSetUsername).toHaveBeenCalledTimes(1);
 	});
 });

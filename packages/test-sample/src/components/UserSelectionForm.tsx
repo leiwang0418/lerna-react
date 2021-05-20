@@ -7,8 +7,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectUsername, setUsername } from '../pages/HomeSlice';
+import { AppDispatch } from '../store';
 
 const GitHubUserInputProps = {
 	startAdornment: (
@@ -42,15 +43,14 @@ const messages = defineMessages({
 const UserSelectionForm: FC = () => {
 	const intl = useIntl();
 	const classes = useStyles();
-	const username = useSelector(selectUsername);
-	const dispatch = useDispatch();
+	const username = useAppSelector(selectUsername);
+	const dispatch = useAppDispatch();
 
 	const [newUsername, setNewUsername] = useState(username);
 
 	const handleSubmit = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		setUsername(newUsername);
-		// dispatch(setUsername(newUsername));
+		dispatch(setUsername(newUsername));
 	};
 
 	const handleChangeUsername: React.ChangeEventHandler<HTMLInputElement> = (
