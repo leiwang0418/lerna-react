@@ -8,7 +8,7 @@ export interface UserState {
 
 const initialState: UserState = {
 	username: 'leiwang0418',
-	isEditing: true
+	isEditing: true,
 };
 
 const UserSlice = createSlice({
