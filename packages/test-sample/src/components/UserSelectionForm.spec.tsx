@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '../../utils/test-utils';
-import UserSelectionForm from '../UserSelectionForm';
+import { render, screen, fireEvent } from '../utils/test-utils';
+import UserSelectionForm from './UserSelectionForm';
 
 
 import { Provider, useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import configureStore from 'redux-mock-store';
 
 
 const setup = () => {
-	const mockSetUsername = jest.spyOn(require("../../pages/HomeSlice"), 'setUsername');
+	const mockSetUsername = jest.spyOn(require("../pages/HomeSlice"), 'setUsername');
 	const initialState = { user: { username: 'leiwang0418', isEditing: true } };
 	const mockStore = configureStore();
 	const store = mockStore(initialState);

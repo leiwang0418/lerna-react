@@ -4,6 +4,7 @@
 
 [参考 react-app-integration-tests-sample
 ](https://github.com/AntonRublev360/react-app-integration-tests-sample/blob/master/package.json)
+[参考 redux官方demo](https://github.com/reduxjs/cra-template-redux-typescript)
 
 ## 需求详情
 

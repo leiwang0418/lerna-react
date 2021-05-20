@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Home from '../Home';
+import Home from './Home';
 
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-jest.mock('../UserSelection', () => () => <div />);
-jest.mock('../PublicRepositoriesList', () => () => <div />);
+jest.mock('./UserSelection', () => () => <div />);
+jest.mock('./PublicRepositoriesList', () => () => <div />);
 
 describe('snapshot test with mock', () => {
 

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
-interface UserState {
+export interface UserState {
 	username: string;
 	isEditing: boolean;
 }

@@ -1,7 +1,7 @@
-import { render } from '../../utils/test-utils';
-import PublicRepositoriesList from '../PublicRepositoriesList';
+import { render } from '../utils/test-utils';
+import PublicRepositoriesList from './PublicRepositoriesList';
 
-jest.mock('../../components/UserRepositories/UserRepositoriesList', () => () => <div />);
+jest.mock('../components/UserRepositories/UserRepositoriesList', () => () => <div />);
 
 describe('snapshot test with mock', () => {
 	it('renders the basic PublicRepositories List page', () => {
