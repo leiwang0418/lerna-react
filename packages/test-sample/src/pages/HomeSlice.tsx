@@ -24,7 +24,7 @@ const UserSlice = createSlice({
 
 export const { setUsername } = UserSlice.actions;
 
-export const selectUsername = (state: RootState) => state.user.username;
-export const selectIsEditing = (state: RootState) => state.user.isEditing;
+export const selectUsername = (store: RootState) => store.user.username;
+export const selectIsEditing = (store: RootState) => store.user.isEditing;
 
 export default UserSlice.reducer;
