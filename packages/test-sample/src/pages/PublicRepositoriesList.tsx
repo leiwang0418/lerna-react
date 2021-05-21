@@ -3,6 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl, defineMessage } from 'react-intl';
 import UserRepositoriesList from '../components/UserRepositories/UserRepositoriesList';
+import { useAppSelector } from '../store/hooks';
+import { selectUsername } from './homeSlice';
 
 const useStyles = makeStyles((theme) => ({
 	header: {
@@ -18,7 +20,7 @@ const message = defineMessage({
 const PublicRepositoriesList = () => {
 	const classes = useStyles();
 	const intl = useIntl();
-	const username = 'lei';
+	const username = useAppSelector(selectUsername);
 
 	return (
 		<Container maxWidth="md">
