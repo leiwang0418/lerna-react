@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserSelection from './UserSelection';
 import PublicRepositoriesList from './PublicRepositoriesList';
 import { useAppSelector } from '../store/hooks';
-import { selectIsEditing } from './HomeSlice';
+import { selectIsEditing } from './homeSlice';
 
 const Home: FC = () => {
 	const isEditing = useAppSelector(selectIsEditing);

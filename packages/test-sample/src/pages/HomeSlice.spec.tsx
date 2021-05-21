@@ -3,7 +3,7 @@ import userReducer, {
 	setUsername,
 	selectUsername,
 	selectIsEditing,
-} from './HomeSlice';
+} from './homeSlice';
 import { RootState } from '../store';
 
 const initialState: UserState = {
@@ -11,7 +11,7 @@ const initialState: UserState = {
 	isEditing: true,
 };
 
-describe('HomeSlice initialState', () => {
+describe('homeSlice initialState', () => {
 	it('should handle initial state', () => {
 		expect(userReducer(undefined, { type: 'unknown' })).toEqual({
 			username: 'leiwang0418',
@@ -20,7 +20,7 @@ describe('HomeSlice initialState', () => {
 	});
 });
 
-describe('HomeSlice reducer', () => {
+describe('homeSlice reducer', () => {
 	it('should handle setUsername', () => {
 		const actual = userReducer(initialState, setUsername('lei wang'));
 		expect(actual.username).toEqual('lei wang');
@@ -28,7 +28,7 @@ describe('HomeSlice reducer', () => {
 	});
 });
 
-describe('HomeSlice selector', () => {
+describe('homeSlice selector', () => {
 	const HomeState: RootState = {
 		user: {
 			username: 'lei',
