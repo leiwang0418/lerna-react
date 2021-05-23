@@ -6,30 +6,43 @@ import UserRepositoriesList from '../components/UserRepositories/UserRepositorie
 import { useAppSelector } from '../store/hooks';
 import { selectUsername } from './homeSlice';
 
+
+
+import { fetchRepositories } from './publicRepositoriesListSlice';
+import { useEffect} from 'react';
+import {useAppDispatch} from '../store/hooks'
+
 const useStyles = makeStyles((theme) => ({
 	header: {
-		margin: theme.spacing(3, 0, 2, 0),
-	},
+		margin: theme.spacing(3, 0, 2, 0)
+	}
 }));
 
 const message = defineMessage({
 	defaultMessage: '{username}的公共仓库:',
-	description: '仓库列表头信息',
+	description: '仓库列表头信息'
 });
 
 const PublicRepositoriesList = () => {
+	const dispatch = useAppDispatch();
+	useEffect(() => {
+
+		dispatch(fetchRepositories("1"));
+	
+	
+		// return () => {
+		// 	const result = fetchRepositories('leiwang0418');
+		// 	console.log(result);
+		// 	return result;
+		// };
+	});
 	const classes = useStyles();
 	const intl = useIntl();
 	const username = useAppSelector(selectUsername);
 
 	return (
 		<Container maxWidth="md">
-			<Typography
-				variant="h3"
-				component="h1"
-				className={classes.header}
-				gutterBottom
-			>
+			<Typography variant="h3" component="h1" className={classes.header} gutterBottom>
 				{intl.formatMessage(message, { username })}
 			</Typography>
 			<UserRepositoriesList />
