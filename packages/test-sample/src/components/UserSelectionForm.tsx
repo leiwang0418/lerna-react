@@ -9,36 +9,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectUsername, setUsername } from '../pages/homeSlice';
-import { AppDispatch } from '../store';
-
-const GitHubUserInputProps = {
-	startAdornment: (
-		<InputAdornment position="start">
-			<AccountCircle />
-		</InputAdornment>
-	),
-};
-
-const useStyles = makeStyles((theme) => ({
-	button: {
-		marginTop: theme.spacing(1),
-	},
-}));
-
-const messages = defineMessages({
-	searchFiledLabel: {
-		defaultMessage: 'GitHub用户名',
-		description: '用户名查询框label',
-	},
-	searchFiledPlaceholder: {
-		defaultMessage: '请输入GitHub用户名',
-		description: '用户名查询框label默认提示',
-	},
-	submitText: {
-		defaultMessage: '查看仓库列表',
-		description: '查看仓库列表提交按钮显示内容',
-	},
-});
 
 const UserSelectionForm: FC = () => {
 	const intl = useIntl();
@@ -91,5 +61,34 @@ const UserSelectionForm: FC = () => {
 		</form>
 	);
 };
+
+const GitHubUserInputProps = {
+	startAdornment: (
+		<InputAdornment position="start">
+			<AccountCircle />
+		</InputAdornment>
+	),
+};
+
+const useStyles = makeStyles((theme) => ({
+	button: {
+		marginTop: theme.spacing(1),
+	},
+}));
+
+const messages = defineMessages({
+	searchFiledLabel: {
+		defaultMessage: 'GitHub用户名',
+		description: '用户名查询框label',
+	},
+	searchFiledPlaceholder: {
+		defaultMessage: '请输入GitHub用户名',
+		description: '用户名查询框label默认提示',
+	},
+	submitText: {
+		defaultMessage: '查看仓库列表',
+		description: '查看仓库列表提交按钮显示内容',
+	},
+});
 
 export default UserSelectionForm;

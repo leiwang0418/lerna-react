@@ -8,7 +8,7 @@ exports[`snapshot test with mock renders the basic PublicRepositories List page 
     <h1
       class="MuiTypography-root makeStyles-header-1 MuiTypography-h3 MuiTypography-gutterBottom"
     >
-      lei的公共仓库:
+      leiwang0418的公共仓库:
     </h1>
     <div />
   </div>

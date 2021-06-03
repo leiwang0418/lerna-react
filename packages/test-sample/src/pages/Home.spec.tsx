@@ -1,38 +1,24 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-
 import Home from './Home';
+import * as hooks from '../store/hooks';
 
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-
-jest.mock('./UserSelection', () => () => <div />);
-jest.mock('./PublicRepositoriesList', () => () => <div />);
+jest.mock('./UserSelection', () => () => <div>UserSelection</div>);
+jest.mock('./PublicRepositoriesList', () => () => <div>PublicRepositoriesList</div>);
 
 describe('snapshot test with mock', () => {
-
-	const setup = (isEditing: boolean) => {
-		const initialState = { user: {isEditing: isEditing} };
-		const mockStore = configureStore();
-		const store = mockStore(initialState);
-
-		const { container } = render(
-			<Provider store={store}>
-				<Home />
-			</Provider>
-		);
-
-		return { container };
-	};
+	const useSelectorMock = jest.spyOn(hooks, 'useAppSelector');
 
 	test('renders the UserSelection', () => {
-		const { container } = setup(true);
+		useSelectorMock.mockReturnValue(true);
+		const { container } = render(<Home />);
 
 		expect(container).toMatchSnapshot();
 	});
 
 	test('renders the public repositories list', () => {
-		const { container } = setup(false);
+		useSelectorMock.mockReturnValue(false);
+		const { container } = render(<Home />);
 
 		expect(container).toMatchSnapshot();
 	});

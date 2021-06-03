@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snaphost test renders the basic UserRepositoriesList 1`] = `
+exports[`UserRepositoriesList should render UserRepositoriesList 1`] = `
+<div>
+  <ul
+    class="MuiList-root MuiList-padding"
+  >
+    <li>
+      UserRepositoriesListItem
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`UserRepositoriesList should render empy page 1`] = `
 <div>
   <ul
     class="MuiList-root MuiList-padding"
@@ -19,5 +31,15 @@ exports[`snaphost test renders the basic UserRepositoriesList 1`] = `
       </div>
     </li>
   </ul>
+</div>
+`;
+
+exports[`UserRepositoriesList should render error page 1`] = `
+<div>
+  <p
+    class="MuiTypography-root MuiTypography-body1 MuiTypography-colorError MuiTypography-gutterBottom"
+  >
+    加载用户仓库列表失败
+  </p>
 </div>
 `;

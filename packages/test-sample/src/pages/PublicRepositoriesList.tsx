@@ -1,53 +1,58 @@
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import { useIntl, defineMessage } from 'react-intl';
-import UserRepositoriesList from '../components/UserRepositories/UserRepositoriesList';
-import { useAppSelector } from '../store/hooks';
-import { selectUsername } from './homeSlice';
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import { useIntl, defineMessage } from "react-intl";
+import UserRepositoriesList from "../components/UserRepositories/UserRepositoriesList";
+import { useAppSelector } from "../store/hooks";
+import { selectUsername } from "./homeSlice";
 
-
-
-import { fetchRepositories } from './publicRepositoriesListSlice';
-import { useEffect} from 'react';
-import {useAppDispatch} from '../store/hooks'
-
-const useStyles = makeStyles((theme) => ({
-	header: {
-		margin: theme.spacing(3, 0, 2, 0)
-	}
-}));
-
-const message = defineMessage({
-	defaultMessage: '{username}的公共仓库:',
-	description: '仓库列表头信息'
-});
+import {
+	fetchRepositories,
+	fetchError,
+	getList,
+	isFetching,
+} from "./publicRepositoriesListSlice";
+import { useEffect } from "react";
+import { useAppDispatch } from "../store/hooks";
 
 const PublicRepositoriesList = () => {
 	const dispatch = useAppDispatch();
-	useEffect(() => {
-
-		dispatch(fetchRepositories("1"));
-	
-	
-		// return () => {
-		// 	const result = fetchRepositories('leiwang0418');
-		// 	console.log(result);
-		// 	return result;
-		// };
-	});
 	const classes = useStyles();
 	const intl = useIntl();
 	const username = useAppSelector(selectUsername);
 
+	useEffect(() => {
+		dispatch(fetchRepositories(username));
+	}, [username, dispatch]);
+
 	return (
 		<Container maxWidth="md">
-			<Typography variant="h3" component="h1" className={classes.header} gutterBottom>
+			<Typography
+				variant="h3"
+				component="h1"
+				className={classes.header}
+				gutterBottom
+			>
 				{intl.formatMessage(message, { username })}
 			</Typography>
-			<UserRepositoriesList />
+			<UserRepositoriesList
+				isFetching={useAppSelector(isFetching)}
+				repositories={useAppSelector(getList)}
+				hasError={useAppSelector(fetchError)}
+			/>
 		</Container>
 	);
 };
+
+const useStyles = makeStyles((theme) => ({
+	header: {
+		margin: theme.spacing(3, 0, 2, 0),
+	},
+}));
+
+const message = defineMessage({
+	defaultMessage: "{username}的公共仓库:",
+	description: "仓库列表头信息",
+});
 
 export default PublicRepositoriesList;

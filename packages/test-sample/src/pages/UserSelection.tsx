@@ -3,12 +3,6 @@ import { Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import UserSelectionForm from '../components/UserSelectionForm';
 
-const useStyles = makeStyles((theme) => ({
-	paper: {
-		padding: theme.spacing(2)
-	}
-}));
-
 const UserSelection = () => {
 	const classes = useStyles();
 
@@ -20,5 +14,11 @@ const UserSelection = () => {
 		</Container>
 	);
 };
+
+const useStyles = makeStyles((theme) => ({
+	paper: {
+		padding: theme.spacing(2)
+	}
+}));
 
 export default UserSelection;

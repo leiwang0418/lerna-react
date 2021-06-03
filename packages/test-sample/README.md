@@ -12,7 +12,6 @@
 
 ## 项目包含如下依赖:
 
-- API调用 ([use-http](https://github.com/ava/use-http))
 -   国际化 ([react-intl](https://formatjs.io/docs/react-intl))
 -   状态管理 ([redux](https://github.com/reduxjs/redux) + [redux-thunk](https://github.com/reduxjs/redux-thunk))
 -   web 组件及样式 ([@material-ui/styles](https://material-ui.com/styles/basics))
@@ -42,7 +41,6 @@ lerna add @material-ui/styles packages/test-sample
 lerna add react-router-dom packages/test-sample
 lerna add @types/react-router-dom packages/test-sample
 lerna add @material-ui/icons packages/test-sample
-lerna add use-http packages/test-sample
 ```
 
 # 国际化内容动态提取

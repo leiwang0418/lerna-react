@@ -22,5 +22,9 @@
   "tKbyKl": {
     "defaultMessage": "{username}的公共仓库:",
     "description": "仓库列表头信息"
+  },
+  "vHiqxW": {
+    "defaultMessage": "前往github查看",
+    "description": "前往github查看"
   }
 }
