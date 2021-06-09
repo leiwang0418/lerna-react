@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useIntl, defineMessage } from "react-intl";
 import UserRepositoriesList from "../components/UserRepositories/UserRepositoriesList";
-import { useAppSelector } from "../store/hooks";
+import { useAppSelector } from "@hooks";
 import { selectUsername } from "./userSelectionSlice";
 
 import {

@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { render, screen } from './utils/test-utils';
+import { render, screen } from '@test-utils';
 import { bootstrapApp } from './index';
 
 jest.mock('react-dom', () => ({

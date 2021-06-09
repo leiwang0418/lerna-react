@@ -2,7 +2,7 @@ import React, { FC, Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 import UserSelection from "./pages/UserSelection";
 import PublicRepositoriesList from "./pages/PublicRepositoriesList";
-import { useAppSelector } from "./store/hooks";
+import { useAppSelector } from "@hooks";
 import { selectIsEditing } from "./pages/userSelectionSlice";
 
 const App: FC = () => {

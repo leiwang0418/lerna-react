@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "../utils/test-utils";
+import { render, screen, waitFor } from "@test-utils";
 import { unmountComponentAtNode } from "react-dom";
 import userEvent from "@testing-library/user-event";
 import App from "../App";

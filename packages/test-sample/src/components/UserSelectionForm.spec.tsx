@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '../utils/test-utils';
+import { render, screen, fireEvent } from '@test-utils';
 import UserSelectionForm from './UserSelectionForm';
 
 describe('snapshot test', () => {

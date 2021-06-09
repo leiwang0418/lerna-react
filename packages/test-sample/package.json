@@ -57,6 +57,7 @@
   "devDependencies": {
     "@formatjs/cli": "^4.2.12",
     "babel-plugin-formatjs": "^10.2.12",
+    "craco-alias": "^3.0.1",
     "nock": "^13.1.0"
   }
 }

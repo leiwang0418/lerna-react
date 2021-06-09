@@ -1,7 +1,7 @@
 import React from "react";
-import { render } from "./utils/test-utils";
+import { render } from "@test-utils";
 import App from "./App";
-import * as hooks from "./store/hooks";
+import * as hooks from "@hooks";
 
 jest.mock("./pages/UserSelection", () => () => <div>UserSelection</div>);
 jest.mock("./pages/PublicRepositoriesList", () => () => (

@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"paths": {
+			"@test-utils": ["./utils/test-utils.tsx"],
+			"@store": ["./store/index.tsx"],
+			"@hooks": ["./store/hooks.tsx"]
+		}
+	}
+}

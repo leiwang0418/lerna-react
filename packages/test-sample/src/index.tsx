@@ -6,7 +6,7 @@ import { IntlProvider } from "react-intl";
 import { Provider } from "react-redux";
 import loadLocaleData from "./utils/loadLocaleData";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { store } from "./store";
+import { store } from "@store";
 import { BrowserRouter as Router } from "react-router-dom";
 
 export const bootstrapApp = async (

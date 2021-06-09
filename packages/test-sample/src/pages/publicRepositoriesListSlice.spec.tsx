@@ -1,5 +1,5 @@
 import { fetchRepositories } from "./publicRepositoriesListSlice";
-import { store } from "../store";
+import { store } from "@store";
 
 describe("publicRepositoriesListSlice", () => {
 	it("should create fetchRepositories action fulfilled", async () => {

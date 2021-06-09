@@ -18,10 +18,10 @@
 -   单页面路由 ([react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom))
 -   图标([@material-ui/icons](https://material-ui.com/components/material-icons/))
 
-
 -   国际化自动提取([@format/cli](https://formatjs.io/docs/tooling/cli))
 -   国际化自动生成id([babel-plugin-formatjs](https://formatjs.io/docs/getting-started/installation))
 -   配置babel以支持自动生成国际化的`id`映射([@craco/craco](https://github.com/gsoft-inc/craco))
+-   类别名([craco-alias](https://github.com/risenforces/craco-alias))
 
 项目创建 create react app(typescript)
 
@@ -165,5 +165,65 @@ lerna add nock packages/test-sample -D
 
 ## 根目录下创建test文件夹用于存放集成测试相关JS
 
+## 配置别名
+
 ```
+lerna add craco-alias packages/test-sample -D
+```
+
+## 配置`tsconfig.json`
+
+### 项目根目录添加`tsconfig.extend.json`文件,配置别名,完整内容如下
+```json
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@utils": ["./utils/test-utils.tsx"],
+            "@store": ["./store/index.tsx"],
+            "@hooks": ["./store/hooks.tsx"]
+        }
+    }
+}
+
+```
+
+### 修改`tsconfig.json`引入`tsconfig.extend.json`
+```
+{
++ "extends": "./tsconfig.extend.json",
+  "compilerOptions": {
+   ...
+}
+
+```
+
+### 配置`craco.config.js`添加别名插件,完整配置如下:
+```js
+const CracoAlias = require('craco-alias');
+
+module.exports = {
+    plugins: [
+        {
+            plugin: CracoAlias,
+            options: {
+                source: 'tsconfig',
+                baseUrl: './src',
+                tsConfigPath: './tsconfig.extend.json'
+            }
+        }
+    ],
+    babel: {
+        plugins: [
+            [
+                'formatjs',
+                {
+                    idInterpolationPattern: '[sha512:contenthash:base64:6]',
+                    ast: true
+                }
+            ]
+        ]
+    }
+};
+
 ```
