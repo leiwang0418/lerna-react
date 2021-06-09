@@ -1,17 +1,20 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Provider } from 'react-redux';
-import {store} from './store';
-import Home from './pages/Home';
+import React, { FC, Fragment } from "react";
+import { Switch, Route } from "react-router-dom";
+import UserSelection from "./pages/UserSelection";
+import PublicRepositoriesList from "./pages/PublicRepositoriesList";
+import { useAppSelector } from "./store/hooks";
+import { selectIsEditing } from "./pages/userSelectionSlice";
 
-function App() {
+const App: FC = () => {
+	const isEditing = useAppSelector(selectIsEditing);
 	return (
-		<CssBaseline>
-			<Provider store={store}>
-				<Home />
-			</Provider>
-		</CssBaseline>
+		<Fragment>
+			<Switch>
+				{isEditing && <Route path="/" component={UserSelection} />}
+				<Route path="/" component={PublicRepositoriesList} />
+			</Switch>
+		</Fragment>
 	);
-}
+};
 
 export default App;

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useIntl, defineMessage } from "react-intl";
 import UserRepositoriesList from "../components/UserRepositories/UserRepositoriesList";
 import { useAppSelector } from "../store/hooks";
-import { selectUsername } from "./homeSlice";
+import { selectUsername } from "./userSelectionSlice";
 
 import {
 	fetchRepositories,

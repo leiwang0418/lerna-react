@@ -3,7 +3,7 @@
 从用户的角度,尽可能忽略细节的情况下,模拟用户与系统交互的特定场景,即集成测试.
 
 [参考 react-app-integration-tests-sample
-](https://github.com/AntonRublev360/react-app-integration-tests-sample/blob/master/package.json)
+](https://github.com/AntonRublev360/react-app-integration-tests-sample)
 [参考 redux官方demo](https://github.com/reduxjs/cra-template-redux-typescript)
 
 ## 需求详情
@@ -157,8 +157,13 @@ module.exports = {
 yarn test --coverage --watchAll=false
 ```
 
-## 集成测试包
+## 添加集成测试依赖包
 
 ```sh
+lerna add nock packages/test-sample -D
+```
 
+## 根目录下创建test文件夹用于存放集成测试相关JS
+
+```
 ```

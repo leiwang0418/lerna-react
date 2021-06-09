@@ -8,6 +8,11 @@ export interface Repository {
   html_url: string;
 }
 
+interface ErrorMessage {
+  message: string;
+  documentation_url: string;
+}
+
 export interface RepositoriesState {
   repositories: Repository[];
   isFetching: boolean;
@@ -20,14 +25,14 @@ const initialState: RepositoriesState = {
   fetchError: false,
 };
 
-export const fetchRepositories = createAsyncThunk<Repository[], string>(
-  "repositories/fetchRepositories",
-  async (username) => {
-    const url = `https://api.github.com/users/${username}/repos?sort=updated_at&order=desc`;
-    const response = await fetch(url);
-    return (await response.json()) as Promise<Repository[]>;
-  }
-);
+export const fetchRepositories = createAsyncThunk<
+  Repository[] | ErrorMessage,
+  string
+>("repositories/fetchRepositories", async (username) => {
+  const url = `https://api.github.com/users/${username}/repos?sort=updated_at&order=desc`;
+  const response = await fetch(url);
+  return (await response.json()) as Promise<Repository[]>;
+});
 
 const RepositoriesSlice = createSlice({
   name: "repositories",
@@ -39,7 +44,9 @@ const RepositoriesSlice = createSlice({
         state.isFetching = true;
       })
       .addCase(fetchRepositories.fulfilled, (state, action) => {
-        state.repositories = action.payload;
+        if(action.payload instanceof Array) {
+         state.repositories = action.payload;
+        }
         state.fetchError = false;
         state.isFetching = false;
       })

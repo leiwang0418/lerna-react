@@ -8,7 +8,9 @@ exports[`snapshot test with mock renders the basic selection page 1`] = `
     <div
       class="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div />
+      <div>
+        UserSelectionForm
+      </div>
     </div>
   </div>
 </div>

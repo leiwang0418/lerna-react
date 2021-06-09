@@ -3,7 +3,7 @@ import userReducer, {
 	setUsername,
 	selectUsername,
 	selectIsEditing,
-} from "./homeSlice";
+} from "./userSelectionSlice";
 // import { RootState, store } from "../store";
 
 const initialState: UserState = {

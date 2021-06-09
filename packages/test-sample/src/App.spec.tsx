@@ -1,9 +1,27 @@
-import React from 'react';
-import { render, screen } from './utils/test-utils';
-import App from './App';
+import React from "react";
+import { render } from "./utils/test-utils";
+import App from "./App";
+import * as hooks from "./store/hooks";
 
-test('renders without crashing', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/查看仓库列表/i);
-  expect(linkElement).toBeInTheDocument();
+jest.mock("./pages/UserSelection", () => () => <div>UserSelection</div>);
+jest.mock("./pages/PublicRepositoriesList", () => () => (
+	<div>PublicRepositoriesList</div>
+));
+
+describe("snapshot test with mock", () => {
+	const useSelectorMock = jest.spyOn(hooks, "useAppSelector");
+
+	it("renders the UserSelection", () => {
+		useSelectorMock.mockReturnValue(true);
+		const { container } = render(<App />);
+
+		expect(container).toMatchSnapshot();
+	});
+
+	it('renders the public repositories list', () => {
+		useSelectorMock.mockReturnValue(false);
+		const { container } = render(<App />);
+
+		expect(container).toMatchSnapshot();
+	});
 });

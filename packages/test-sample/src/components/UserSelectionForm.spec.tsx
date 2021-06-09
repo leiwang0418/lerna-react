@@ -26,7 +26,7 @@ describe('act test', () => {
 	});
 
 	it('submit clicked', () => {
-		const mockSetUsername = jest.spyOn(require("../pages/HomeSlice"), 'setUsername');
+		const mockSetUsername = jest.spyOn(require("../pages/userSelectionSlice"), 'setUsername');
 		render(<UserSelectionForm />);
 		const submit = screen.getByRole('button');
 		fireEvent.click(submit);
