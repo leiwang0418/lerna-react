@@ -227,3 +227,69 @@ module.exports = {
 };
 
 ```
+## 使用`jest`+`puppeteer`进行端到端测试
+
+### 安装`puppetter`
+```sh
+lerna add puppeteer packages/test-sample -D
+lerna add jest-puppeteer packages/test-sample -D
+lerna add @types/puppeteer packages/test-sample -D
+lerna add @types/jest-environment-puppeteer packages/test-sample -D
+lerna add @types/expect-puppeteer packages/test-sample -D
+```
+
+### 根目录下建立e2e测试目录，并配置添加`jest.config.js`配置文件，内容如下：
+```js
+module.exports = {
+  preset: "jest-puppeteer",
+  testRegex: "./*\\.spec\\.tsx$",
+};
+
+```
+
+### 修改`package.json`，添加如下配置
+```json
+  "scripts": {
+    ...
++    "test:e2e": "jest -c e2e/jest.config.js",
++    "test:e2eWatch": "jest -c e2e/jest.config.js --watchAll",
+    ...
+  },
+```
+
+### 项目根目录添加`jest-puppeteer.config.js`，支持`puppeteer`测试自动启动，完成后自动关闭配置，内容如下：
+```js
+module.exports = {
+  server: {
+    command: `yarn start`,
+    port: 3000,
+    launchTimeout: 10000,
+    debug: true,
+  },
+}
+```
+
+### e2e目录添加测试文件夹，编写测试文件`index.spec.tsx`,内容如下：
+```tsx
+describe("Index page", () => {
+  beforeEach(async () => {
+    await page.goto("http://localhost:3000");
+  });
+
+  it("should be search page", async () => {
+    await expect(page).toFill(
+      'input[placeholder="请输入GitHub用户名"]',
+      "leiwang0418"
+    );
+    await page.click("button[type=submit]", { text: "查看仓库列表" });
+    await expect(page).toMatchElement("h1", { text: "leiwang0418的公共仓库:" });
+    await expect(page).toMatchElement("ul");
+  });
+});
+
+```
+
+### 运行e2e测试
+```sh
+yarn test:e2e
+```
