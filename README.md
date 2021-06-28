@@ -1,4 +1,4 @@
-## `lerna` + `storybook` + `craco` + `typescript`
+## `lerna` + `react-styleguide` + `craco` + `typescript`
 
 ## 安装 lerna
 
