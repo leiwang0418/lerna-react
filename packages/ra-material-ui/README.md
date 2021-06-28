@@ -47,6 +47,6 @@ lerna add @types/jest packages/ra-material-ui -D
 项目根目录下创建`styleguide.config.js`文件，内容如下：
 ```js
 module.exports = {
-  components: 'src/components/**/[A-Z]*.tsx'
+  components: 'src/**/[A-Z]*.tsx'
 }
 ```
