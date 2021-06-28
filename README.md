@@ -26,7 +26,7 @@ lerna init
 ```sh
 lerna create ra-material-ui
 ```
-* ![配置`ra-material-ui](packages/ra-material-ui/README.md)
+* 配置ra-material-ui(packages/ra-material-ui/README.md)
 
 ## 使用CRA创建typesctip react项目
 ```sh
@@ -34,9 +34,9 @@ cd packages/
 yarn create react-app admin --template typescript
 ```
 
-* ![配置`ra-material-ui](packages/admin/README.md)
+* 配置`ra-material-ui(packages/admin/README.md)
 
- ![admin模块具体配置](packages/admin/README.md)
+* admin模块具体配置](packages/admin/README.md)
 
 ## 配置支持 yarn workspace  
 
@@ -58,15 +58,15 @@ yarn create react-app admin --template typescript
     ],
     "npmClient": "yarn",
     "scripts": {
-        "story": "yarn lerna run storybook --stream",
-        "admin": "yarn lerna run start-admin --stream"
+        "guide": "yarn lerna run styleguide --stream",
+        "admin": "yarn lerna run start --stream"
     }
 }
 
 ```
 ## 全局命令
 ```sh
-yarn story
+yarn guide
 yarn admin
 ```
 

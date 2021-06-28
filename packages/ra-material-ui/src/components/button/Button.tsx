@@ -1,11 +1,44 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import PropTypes from "prop-types";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	label: string;
+/**
+ * The only true button.
+ */
+const Button = ({
+	color = "#333",
+	size = "normal",
+	children,
+}: ButtonProps) => {
+	const styles = {
+		color,
+		fontSize: sizes[size],
+	};
+	return (
+		<button className="button" style={styles}>
+			{children}
+		</button>
+	);
+};
+
+interface ButtonProps {
+	children: string;
+	color?: string;
+	size?: "small" | "normal" | "large"
 }
 
-const Button = ({ label, ...props }: ButtonProps) => (
-	<button {...props}>{label}</button>
-);
+Button.propTypes = {
+	/**
+	 * Button label.
+	 */
+	children: PropTypes.string.isRequired,
+	color: PropTypes.string,
+	size: PropTypes.oneOf(["small", "normal", "large"]),
+};
+
+const sizes = {
+	small: "10px",
+	normal: "14px",
+	large: "18px",
+};
+
 
 export default Button;

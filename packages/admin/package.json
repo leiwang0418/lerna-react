@@ -20,7 +20,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start-admin": "craco start",
+    "admin": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

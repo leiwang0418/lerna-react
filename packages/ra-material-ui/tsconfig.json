@@ -1,10 +1,9 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"esModuleInterop": true,
-		"jsx": "react-jsx",
-		"skipLibCheck": true,
-		"strict": true
-	},
-	"include": ["src/**/*", "main.ts", "./jest-setup.ts"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "strict": true
+  }
 }

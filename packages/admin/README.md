@@ -53,7 +53,7 @@ module.exports = {
 ```json
   "scripts": {
     - "start": "react-scripts start",
-    + "start-admin": "craco start",
+    + "admin": "craco start",
     - "build": "react-scripts build",
     + "build": "craco build",
     - "test": "react-scripts test",
@@ -66,7 +66,7 @@ module.exports = {
 ```json
     "scripts": {
         ...
-        + "admin": "yarn lerna run start-admin --stream"
+        + "admin": "yarn lerna run admin --stream"
         ...
     }
 ```

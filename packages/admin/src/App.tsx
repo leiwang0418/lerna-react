@@ -1,10 +1,14 @@
-import React from 'react';
-import { Button } from 'ra-material-ui';
+import { Button } from "ra-material-ui";
 
 function App() {
 	return (
-		<div className="App">
-			<Button label="Hello world"/>
+		<div>
+			<Button>
+				Click Me
+			</Button>
+			<Button size="large" color="deeppink">
+				Click Me
+			</Button>
 		</div>
 	);
 }

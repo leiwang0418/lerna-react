@@ -9,7 +9,7 @@
 	],
 	"npmClient": "yarn",
 	"scripts": {
-		"story": "yarn lerna run storybook --stream",
-		"admin": "yarn lerna run start-admin --stream"
+		"guide": "yarn lerna run styleguide --stream",
+		"admin": "yarn lerna run admin --stream"
 	}
 }
