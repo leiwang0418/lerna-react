@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
  * The only true button.
  */
 const Button = ({
-	color = "#333",
+	color = "blue",
 	size = "normal",
 	children,
 }: ButtonProps) => {

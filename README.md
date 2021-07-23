@@ -24,7 +24,7 @@ lerna init
 ## 创建一个公共组件库
 
 ```sh
-lerna create ra-material-ui
+yarn create react-app ra-material-ui --template typescript
 ```
 * 配置ra-material-ui(packages/ra-material-ui/README.md)
 
